@@ -1,32 +1,35 @@
+// switchë¬¸ì„ ì‚¬ìš©í•˜ì—¬ ì ìˆ˜ì— ë”°ë¥¸ ë“±ê¸‰ ì§€ì •í•˜ê¸°
+
 #include <stdio.h>
 
 void main()
 {
-    /* Á¡¼ö¸¦ 86Á¡À¸·Î ¼³Á¤ÇÑ´Ù. */
-    int score = 86;
-    /* Á¡¼ö¿¡ µû¸¥ µî±ÞÀ» ÀúÀåÇÒ º¯¼ö¸¦ ¼±¾ðÇÑ´Ù. */
-    char grade;
-    /* µî±ÞÀ» °áÁ¤ÇÏ´Â Á¡¼ö°¡ 10´ÜÀ§·Î ´Þ¶óÁö±â ¶§¹®¿¡ 10À¸·Î ³ª´« ¸òÀ»
-    ÀÌ¿ëÇÏ¸é Æ¯Á¤ ¼ýÀÚ¿Í ºñ±³ÇÏµµ·Ï º¯°æ °¡´ÉÇÏ´Ù.
-    90 ~ 99 »çÀÌÀÇ ¼ýÀÚ¸¦ 10À¸·Î ³ª´« ¸òÀº 9ÀÌ´Ù. */
-    switch (score / 10) {
-		case 10:               /* 100Àº 10À¸·Î ³ª´©¸é 10ÀÌ´Ù. */
-		case 9:
-			grade = 'A';        /* 90Á¡ ÀÌ»ó */
-			break;
-		case 8:
-			grade = 'B';       /* 80Á¡ <= score < 90 */
-			break;
-		case 7:
-			grade = 'C';        /* 70Á¡ <= score < 80 */
-			break;
-		case 6:
-			grade = 'D';        /* 60Á¡ <= score < 70 */
-			break;
-		default:
-			grade = 'F';        /* 60Á¡º¸´Ù ÀÛÀº °æ¿ì */
-			break;
-    }
-    /* ÀÚ½ÅÀÇ Á¡¼ö¿Í µî±ÞÀ» Ãâ·ÂÇÑ´Ù. */
-    printf("´ç½ÅÀÇ Á¡¼ö´Â %dÁ¡ÀÌ°í µî±ÞÀº %c ÀÔ´Ï´Ù. \n", score, grade);
+  /* ì ìˆ˜ë¥¼ 86ì ìœ¼ë¡œ ì„¤ì •í•œë‹¤. */
+  int score = 86;
+  /* ì ìˆ˜ì— ë”°ë¥¸ ë“±ê¸‰ì„ ì €ìž¥í•  ë³€ìˆ˜ë¥¼ ì„ ì–¸í•œë‹¤. */
+  char grade;
+  /* ë“±ê¸‰ì„ ê²°ì •í•˜ëŠ” ì ìˆ˜ê°€ 10ë‹¨ìœ„ë¡œ ë‹¬ë¼ì§€ê¸° ë•Œë¬¸ì— 10ìœ¼ë¡œ ë‚˜ëˆˆ ëª«ì„
+  ì´ìš©í•˜ë©´ íŠ¹ì • ìˆ«ìžì™€ ë¹„êµí•˜ë„ë¡ ë³€ê²½ ê°€ëŠ¥í•˜ë‹¤.
+  90 ~ 99 ì‚¬ì´ì˜ ìˆ«ìžë¥¼ 10ìœ¼ë¡œ ë‚˜ëˆˆ ëª«ì€ 9ì´ë‹¤. */
+  switch (score / 10)
+  {
+  case 10: /* 100ì€ 10ìœ¼ë¡œ ë‚˜ëˆ„ë©´ 10ì´ë‹¤. */
+  case 9:
+    grade = 'A'; /* 90ì  ì´ìƒ */
+    break;
+  case 8:
+    grade = 'B'; /* 80ì  <= score < 90 */
+    break;
+  case 7:
+    grade = 'C'; /* 70ì  <= score < 80 */
+    break;
+  case 6:
+    grade = 'D'; /* 60ì  <= score < 70 */
+    break;
+  default:
+    grade = 'F'; /* 60ì ë³´ë‹¤ ìž‘ì€ ê²½ìš° */
+    break;
+  }
+  /* ìžì‹ ì˜ ì ìˆ˜ì™€ ë“±ê¸‰ì„ ì¶œë ¥í•œë‹¤. */
+  printf("ë‹¹ì‹ ì˜ ì ìˆ˜ëŠ” %dì ì´ê³  ë“±ê¸‰ì€ %c ìž…ë‹ˆë‹¤. \n", score, grade);
 }

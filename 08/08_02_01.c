@@ -1,9 +1,12 @@
+// 조건 수식이 참일 때 단일 명령 문장 실행하기
+
 #include <stdio.h>
 
 void main()
 {
-    int data = 5; /* ���ɹ�1 */
-                  /* data > 3 �� ������ ���̱� ������ ���ɹ��� �����մϴ�. */
-    if (data > 3) printf("data�� 3���� ū ���Դϴ�. \n"); /* ���ɹ�2 */
-    printf("�۾� ���� \n");   /* ���ɹ�3 */
+  int data = 5; /* 명령문1 */
+                /* data > 3 비교 연산은 참이기 때문에 명령문을 수행합니다. */
+  if (data > 3)
+    printf("data는 3보다 큰 수입니다. \n"); /* 명령문2 */
+  printf("작업 종료 \n");                   /* 명령문3 */
 }
