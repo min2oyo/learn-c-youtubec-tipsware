@@ -1,32 +1,23 @@
+// ë³€ìˆ˜ì˜ ê°’ì„ 2ì§„ìˆ˜ í˜•íƒœë¡œ í™•ì¸í•˜ëŠ” ì˜ˆì œ
+
 #include <stdio.h>
-/* dest_data º¯¼öÀÇ bit_num ¹øÂ° ºñÆ® °ªÀ» ¹İÈ¯ÇÏ´Â ÇÔ¼öÀÌ´Ù. */
-unsigned char GetBit(unsigned char dest_data, unsigned char bit_num)
+
+void print_binary(unsigned char lamp_state)
 {
-    unsigned char bit_state = 0;
-    /* 1 ¹ÙÀÌÆ® º¯¼ö¶ó¼­ ºñÆ®ÀÌµ¿Àº 0 ~ 7±îÁö °¡´ÉÇÏ´Ù */
-    if (bit_num < 8) {
-        bit_state = dest_data & (0x01 << bit_num);
-        bit_state = bit_state >> bit_num;
-    }
-    /* bit_num¿¡ ÁöÁ¤ÇÑ ºñÆ® °ªÀ» ¹İÈ¯ */
-    return bit_state;
+  printf("%X -> ", lamp_state);
+
+  for (unsigned char i = 7; i < 8; i--)
+  {
+    printf("%d", (lamp_state >> i) & 1);
+    printf("%s", i == 4 ? "\u00A0" : "");
+  }
+
+  printf("\n");
 }
 
-void main()
+void main(void)
 {
-    unsigned char lamp_state = 0x75;   /* 0x7F ¡æ 0111 0101 */
-    unsigned char bit_state;
-    int i;
+  unsigned char lamp_state = 0x75;
 
-    printf("%X -> ", lamp_state);  /* 16Áø¹ıÀ¸·Î ÇöÀç °ª Ãâ·Â */
-                                   /* 8°³ÀÇ ºñÆ® °ªÀ» ¸ğµÎ Ãâ·ÂÇÏ±â À§ÇØ 8¹ø ¹İº¹ */
-    for (i = 0; i < 8; i++) {
-        /* ºñÆ®¸¦ Ç¥½ÃÇÒ ¶§ ÃÖ»óÀ§ ºñÆ®(7¹ø ºñÆ®)ºÎÅÍ ¼øÂ÷ÀûÀ¸·Î
-        º¸¿©ÁÖ±â À§ÇØ¼­ 7, 6, 5, ¡¦ ¼ø¼­·Î ºñÆ® °ªÀ» ¾ò´Â´Ù */
-        bit_state = GetBit(lamp_state, 7 - i);
-        /* ºñÆ® °ªÀ» Ãâ·Â */
-        printf("%d", bit_state);
-    }
-    /* ºñÆ® °ªÀÌ ¸ğµÎ Ãâ·ÂµÇ¸é ÁÙ ¹Ù²ŞÀ» ÇÑ´Ù. */
-    printf("\n");
+  print_binary(lamp_state);
 }

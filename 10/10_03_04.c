@@ -1,28 +1,30 @@
+// ë³€ìˆ˜ì˜ íŠ¹ì • Bitë¥¼ 0 ë˜ëŠ” 1ë¡œ ë³€ê²½í•˜ëŠ” ì˜ˆì œ
+
 #include <stdio.h>
-/* dest_data º¯¼öÀÇ bit_num ¹øÂ° ÀÖ´Â ºñÆ®¸¦ 0À¸·Î ¼³Á¤ÇÏ´Â
-ÇÔ¼öÀÌ´Ù. ÀÌ ÇÔ¼ö´Â ÇØ´çºñÆ®°¡ 0À¸·Î ¼³Á¤µÈ °ªÀ» ¹İÈ¯ÇÑ´Ù. */
+
 unsigned char ModifyBit(unsigned char dest_data, unsigned char bit_num, char value)
 {
-    unsigned char mask;
-    /* 1 ¹ÙÀÌÆ® º¯¼ö¶ó¼­ ºñÆ®ÀÌµ¿Àº 0 ~ 7±îÁö °¡´ÉÇÏ´Ù */
-    if (bit_num < 8) {
-        /* bit_num ¹øÂ° ºñÆ®¿¡ °ªÀ» ¼³Á¤ÇÏ´Âµ¥ »ç¿ëÇÒ ¼ıÀÚ¸¦ ±¸¼ºÇÑ´Ù. */
-        mask = 0x01 << bit_num;
-        if (value == 1) dest_data = dest_data | mask;  /* 1·Î ¼³Á¤ÇÏ´Â °æ¿ì */
-        else dest_data = dest_data & ~mask;  /* 0À¸·Î ¼³Á¤ÇÏ´Â °æ¿ì */
-    }
-    /*º¯°æµÈ °ªÀ» ¹İÈ¯ */
-    return dest_data;
+  if (bit_num < 8 && (value == 0 || value == 1))
+  {
+    unsigned char mask = 0x01 << bit_num;
+
+    if (value)
+      dest_data |= mask;
+    else
+      dest_data &= ~mask;
+  }
+
+  return dest_data;
 }
 
 void main()
 {
-    unsigned char lamp_state = 0x7F;   /* 0x7F ¡æ 0111 1111 */
-    printf("%X->", lamp_state);        /* º¯°æ Àü °ª Ãâ·Â */
-                                       /* lamp_state º¯¼öÀÇ 3¹øÂ° ºñÆ®¸¦ 0À¸·Î ¼³Á¤ */
-    lamp_state = ModifyBit(lamp_state, 3, 0);  /* 0x77 ¡æ 0111 0111 */
-    printf("%X->", lamp_state);  /* º¯°æ ÈÄ °ª Ãâ·Â */
-                                 /* lamp_state º¯¼öÀÇ 3¹øÂ° ºñÆ®¸¦ 1À¸·Î ¼³Á¤ */
-    lamp_state = ModifyBit(lamp_state, 3, 1);  /* 0x7F ¡æ 0111 1111 */
-    printf("%X\n", lamp_state);  /* º¯°æ ÈÄ °ª Ãâ·Â */
+  unsigned char lamp_state = 0x7F; // 0x7F â†’ 0111 1111
+  printf("%X -> ", lamp_state);
+
+  lamp_state = ModifyBit(lamp_state, 3, 0); // 0x77 â†’ 0111 0111
+  printf("%X -> ", lamp_state);
+
+  lamp_state = ModifyBit(lamp_state, 3, 1); // 0x7F â†’ 0111 1111
+  printf("%X\n", lamp_state);
 }

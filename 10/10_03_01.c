@@ -1,19 +1,20 @@
+// ë³€ìˆ˜ì˜ íŠ¹ì • Bitë¥¼ 0ìœ¼ë¡œ ë§Œë“œëŠ” ì˜ˆì œ
+
 #include <stdio.h>
-/* dest_data º¯¼öÀÇ bit_num ¹øÂ° ÀÖ´Â ºñÆ®¸¦ 0À¸·Î ¼³Á¤ÇÏ´Â
-ÇÔ¼öÀÌ´Ù. ÀÌ ÇÔ¼ö´Â ÇØ´çºñÆ®°¡ 0À¸·Î ¼³Á¤µÈ °ªÀ» ¹İÈ¯ÇÑ´Ù. */
+
 unsigned char ResetBit(unsigned char dest_data, unsigned char bit_num)
 {
-    /* 1 ¹ÙÀÌÆ® º¯¼ö¶ó¼­ ºñÆ®ÀÌµ¿Àº 0 ~ 7±îÁö °¡´ÉÇÏ´Ù */
-    if (bit_num < 8) dest_data = dest_data & ~(0x01 << bit_num);
-    /*º¯°æµÈ °ªÀ» ¹İÈ¯ */
-    return dest_data;
+  if (bit_num < 8)
+    dest_data &= ~(0x01 << bit_num);
+
+  return dest_data;
 }
 
 void main()
 {
-    unsigned char lamp_state = 0x7F;   /* 0x7F ¡æ 0111 1111 */
-    printf("%X->", lamp_state);        /* º¯°æ Àü °ª Ãâ·Â */
-                                       /* lamp_state º¯¼öÀÇ 3¹øÂ° ºñÆ®¸¦ 0À¸·Î ¼³Á¤ */
-    lamp_state = ResetBit(lamp_state, 3);  /* 0x77 ¡æ 0111 0111 */
-    printf("%X\n", lamp_state);  /* º¯°æ ÈÄ °ª Ãâ·Â */
+  unsigned char lamp_state = 0x7F; // 0x7F â†’ 0111 1111
+  printf("%X -> ", lamp_state);
+
+  lamp_state = ResetBit(lamp_state, 3); // 0x77 â†’ 0111 0111
+  printf("%x\n", lamp_state);
 }
