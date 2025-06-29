@@ -2,11 +2,12 @@
 
 void Test()
 {
-    static int data = 0;
-    printf("%d, ", data++);
+  static int data = 0;
+  printf("%d, ", data++);
 }
 void main()
 {
-    int i;
-    for (i = 0; i < 5; i++) Test();
+  int i;
+  for (i = 0; i < 5; i++)
+    Test();
 }

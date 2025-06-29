@@ -1,16 +1,19 @@
+// ì „ì—­ ë³€ìˆ˜ì™€ ì§€ì—­ ë³€ìˆ˜ì˜ ì´ë¦„ì´ ê°€í‹€ ë•Œ ë¬¸ì œì  ì‚´í´ë³´ê¸°
+
 #include <stdio.h>
-int  result;   /* Àü¿ªº¯¼öÀü¿ª º¯¼ö, Æ¯º°ÇÑ ÃÊ±âÈ­ °ªÀÌ ¾øÀ¸¸é 0À¸·Î ÃÊ±âÈ­µÊ */
+
+int result;
 
 void Sum(int data1, int data2)
 {
-    int  result;   /* Áö¿ªº¯¼öÁö¿ª º¯¼ö, ÃÊ±âÈ­ ¾ÈµÊ */
-    result = data1 + data2;
-    /*Áö¿ª º¯¼öÀÇ ¿ì¼±¼øÀ§°¡ ³ô±â ¶§¹®¿¡ ¿¬»ê°á°ú °ªÀº Àü¿ª º¯¼ö result°¡ ¾Æ´Ñ Áö¿ªº¯¼ö 
-	result¿¡ ÁöÁ¤*/
+  int result;
+
+  result = data1 + data2;
 }
 
 void main()
 {
-    Sum(5, 3);
-    printf("5 + 3 = %d\n", result);
+  Sum(5, 3);
+
+  printf("5 + 3 = %d\n", result);
 }

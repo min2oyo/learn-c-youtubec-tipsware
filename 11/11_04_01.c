@@ -1,11 +1,17 @@
 #include <stdio.h>
-void Test()
+
+int result;
+
+void test()
 {
-    int data = 0;
-    printf("%d, ", data++);
+  int result = 5;
+
+  result++;
 }
+
 void main()
 {
-    int i;
-    for (i = 0; i < 5; i++) Test();
+  test();
+
+  printf("result = %d\n", result);
 }
